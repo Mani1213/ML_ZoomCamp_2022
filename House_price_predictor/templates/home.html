@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Madrid House Prices Predictor</title>
+</head>
+
+<body style="background-color:rgb(193, 193, 193);">
+    <td>
+        <H1 style="text-align:center">Madrid Spain House Price Predictor</H1>
+        <p style="text-align:center">Last Update 2022/11/05</p>
+        <a href="https://github.com/Mani1213/ML_ZoomCamp_2022/tree/main/Capstone%20project">
+            <p style="text-align:center">You can learn more about the project here (github repo)</p>
+        </a>
+        <p style="text-align:center">Model trained with 11404 observations scraped from a real estate website in October
+            2022 </p>
+        <p style="text-align:center">
+            <img src="static//madrid.jpg" alt="Madrid" style='padding:1px; width: 20%; height: 20%'>
+        </p>
+        <p style="text-align:center">Are you trying to figure out your dream house price in Madrid Spain? <br>
+            With this model, you can provide the features such as neighborhood, bedroom number, etc, <br>
+            and get an approximate price of a house with that characteristics. <br>
+            <b> This project was made for learning and fun purposes and is not a production service</b>
+        </p>
+    </td>
+
+    <div style="text-align:center;">
+        <form method="POST">
+            <label for="ht1">House type:</label>
+            <select name="house_type" id="ht1">
+                <option value="bajo">bajo</option>
+                <option value="casa">casa</option>
+                <option value="chalet">chalet</option>
+                <option value="entreplanta">entreplanta</option>
+                <option value="semi-sotano">semi-sotano</option>
+                <option value="sotano">sotano</option>
+                <option value="planta_1">planta_1</option>
+                <option value="planta_2">planta_2</option>
+                <option value="planta_3">planta_3</option>
+                <option value="planta_4">planta_4</option>
+                <option value="planta_5">planta_5</option>
+                <option value="planta_6">planta_6</option>
+                <option value="planta_7">planta_7</option>
+                <option value="planta_8">planta_8</option>
+                <option value="planta_9">planta_9</option>
+                <option value="planta_10">planta_10</option>
+                <option value="planta_11">planta_11</option>
+                <option value="planta_12">planta_12</option>
+                <option value="planta_13">planta_13</option>
+            </select><br>
+            <label for="ht2">House type 2:</label>
+            <select name="house_type_2" id="ht2">
+                <option value="exterior">exterior</option>
+                <option value="interior">interior</option>
+            </select><br>
+
+            <label for="rooms">Rooms:</label>
+            <select name="rooms" id="rooms">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select><br>
+            <label for="m2">m2 between 20 & 300:</label>
+            <input type="number" name="m2" min="20" max="300" id="m2" placeholder = 20>
+            <br>
+            <label for="elevator">Elevator:</label>
+            <select name="elevator" id="elevator">
+                <option value="yes">si</option>
+                <option value="no">no</option>
+            </select><br>
+
+            <label for="garage">Garage:</label>
+            <select name="garage" id="garage">
+                <option value="yes">si</option>
+                <option value="no">no</option>
+            </select><br>
+
+            <label for="district / neighborhood">District / Neighborhood:</label>
+            <select name="district" id="district">
+                <option value="arganzuela, acacias">arganzuela, acacias</option>
+                <option value="arganzuela, chopera">arganzuela, chopera</option>
+                <option value="arganzuela, delicias">arganzuela, delicias</option>
+                <option value="arganzuela, imperial">arganzuela, imperial</option>
+                <option value="arganzuela, legazpi">arganzuela, legazpi</option>
+                <option value="arganzuela, palos_de_moguer">arganzuela, palos_de_moguer</option>
+                <option value="barajas, aeropuerto">barajas, aeropuerto</option>
+                <option value="barajas, alameda_de_osuna">barajas, alameda_de_osuna</option>
+                <option value="barajas, campo_de_las_naciones-corralejos">barajas, campo_de_las_naciones-corralejos
+                </option>
+                <option value="barajas, casco_historico_de_barajas">barajas, casco_historico_de_barajas</option>
+                <option value="barajas, timon">barajas, timon</option>
+                <option value="barrio_de_salamanca, castellana">barrio_de_salamanca, castellana</option>
+                <option value="barrio_de_salamanca, fuente_del_berro">barrio_de_salamanca, fuente_del_berro</option>
+                <option value="barrio_de_salamanca, goya">barrio_de_salamanca, goya</option>
+                <option value="barrio_de_salamanca, guindalera">barrio_de_salamanca, guindalera</option>
+                <option value="barrio_de_salamanca, lista">barrio_de_salamanca, lista</option>
+                <option value="barrio_de_salamanca, recoletos">barrio_de_salamanca, recoletos</option>
+                <option value="carabanchel, abrantes">carabanchel, abrantes</option>
+                <option value="carabanchel, buena_vista">carabanchel, buena_vista</option>
+                <option value="carabanchel, comillas">carabanchel, comillas</option>
+                <option value="carabanchel, opanel">carabanchel, opanel</option>
+                <option value="carabanchel, pau_de_carabanchel">carabanchel, pau_de_carabanchel</option>
+                <option value="carabanchel, puerta_bonita">carabanchel, puerta_bonita</option>
+                <option value="carabanchel, san_isidro">carabanchel, san_isidro</option>
+                <option value="carabanchel, vista_alegre">carabanchel, vista_alegre</option>
+                <option value="centro, chueca-justicia">centro, chueca-justicia</option>
+                <option value="centro, huertas-cortes">centro, huertas-cortes</option>
+                <option value="centro, lavapies-embajadores">centro, lavapies-embajadores</option>
+                <option value="centro, malasana-universidad">centro, malasana-universidad</option>
+                <option value="centro, palacio">centro, palacio</option>
+                <option value="centro, sol">centro, sol</option>
+                <option value="chamartin, bernabeu-hispanoamerica">chamartin, bernabeu-hispanoamerica</option>
+                <option value="chamartin, castilla">chamartin, castilla</option>
+                <option value="chamartin, ciudad_jardin">chamartin, ciudad_jardin</option>
+                <option value="chamartin, el_viso">chamartin, el_viso</option>
+                <option value="chamartin, nueva_espana">chamartin, nueva_espana</option>
+                <option value="chamartin, prosperidad">chamartin, prosperidad</option>
+                <option value="chamberi, almagro">chamberi, almagro</option>
+                <option value="chamberi, arapiles">chamberi, arapiles</option>
+                <option value="chamberi, gaztambide">chamberi, gaztambide</option>
+                <option value="chamberi, nuevos_ministerios-rios_rosas">chamberi, nuevos_ministerios-rios_rosas</option>
+                <option value="chamberi, trafalgar">chamberi, trafalgar</option>
+                <option value="chamberi, vallehermoso">chamberi, vallehermoso</option>
+                <option value="ciudad_lineal, atalaya">ciudad_lineal, atalaya</option>
+                <option value="ciudad_lineal, colina">ciudad_lineal, colina</option>
+                <option value="ciudad_lineal, concepcion">ciudad_lineal, concepcion</option>
+                <option value="ciudad_lineal, costillares">ciudad_lineal, costillares</option>
+                <option value="ciudad_lineal, pueblo_nuevo">ciudad_lineal, pueblo_nuevo</option>
+                <option value="ciudad_lineal, quintana">ciudad_lineal, quintana</option>
+                <option value="ciudad_lineal, san_juan_bautista">ciudad_lineal, san_juan_bautista</option>
+                <option value="ciudad_lineal, san_pascual">ciudad_lineal, san_pascual</option>
+                <option value="ciudad_lineal, ventas">ciudad_lineal, ventas</option>
+                <option value="fuencarral, arroyo_del_fresno">fuencarral, arroyo_del_fresno</option>
+                <option value="fuencarral, el_pardo">fuencarral, el_pardo</option>
+                <option value="fuencarral, fuentelarreina">fuencarral, fuentelarreina</option>
+                <option value="fuencarral, la_paz">fuencarral, la_paz</option>
+                <option value="fuencarral, las_tablas">fuencarral, las_tablas</option>
+                <option value="fuencarral, mirasierra">fuencarral, mirasierra</option>
+                <option value="fuencarral, montecarmelo">fuencarral, montecarmelo</option>
+                <option value="fuencarral, penagrande">fuencarral, penagrande</option>
+                <option value="fuencarral, pilar">fuencarral, pilar</option>
+                <option value="fuencarral, tres_olivos_-_valverde">fuencarral, tres_olivos_-_valverde</option>
+                <option value="hortaleza, apostol_santiago">hortaleza, apostol_santiago</option>
+                <option value="hortaleza, canillas">hortaleza, canillas</option>
+                <option value="hortaleza, conde_orgaz-piovera">hortaleza, conde_orgaz-piovera</option>
+                <option value="hortaleza, palomas">hortaleza, palomas</option>
+                <option value="hortaleza, pinar_del_rey">hortaleza, pinar_del_rey</option>
+                <option value="hortaleza, sanchinarro">hortaleza, sanchinarro</option>
+                <option value="hortaleza, valdebebas_-_valdefuentes">hortaleza, valdebebas_-_valdefuentes</option>
+                <option value="hortaleza, virgen_del_cortijo_-_manoteras">hortaleza, virgen_del_cortijo_-_manoteras
+                </option>
+                <option value="latina, aguilas">latina, aguilas</option>
+                <option value="latina, aluche">latina, aluche</option>
+                <option value="latina, campamento">latina, campamento</option>
+                <option value="latina, cuatro_vientos">latina, cuatro_vientos</option>
+                <option value="latina, los_carmenes">latina, los_carmenes</option>
+                <option value="latina, lucero">latina, lucero</option>
+                <option value="latina, puerta_del_angel">latina, puerta_del_angel</option>
+                <option value="moncloa, aravaca">moncloa, aravaca</option>
+                <option value="moncloa, arguelles">moncloa, arguelles</option>
+                <option value="moncloa, casa_de_campo">moncloa, casa_de_campo</option>
+                <option value="moncloa, ciudad_universitaria">moncloa, ciudad_universitaria</option>
+                <option value="moncloa, el_plantio">moncloa, el_plantio</option>
+                <option value="moncloa, valdemarin">moncloa, valdemarin</option>
+                <option value="moncloa, valdezarza">moncloa, valdezarza</option>
+                <option value="moratalaz, fontarron">moratalaz, fontarron</option>
+                <option value="moratalaz, horcajo">moratalaz, horcajo</option>
+                <option value="moratalaz, marroquina">moratalaz, marroquina</option>
+                <option value="moratalaz, media_legua">moratalaz, media_legua</option>
+                <option value="moratalaz, pavones">moratalaz, pavones</option>
+                <option value="moratalaz, vinateros">moratalaz, vinateros</option>
+                <option value="puente-de-vallecas, entrevias">puente-de-vallecas, entrevias</option>
+                <option value="puente-de-vallecas, numancia">puente-de-vallecas, numancia</option>
+                <option value="puente-de-vallecas, palomeras_bajas">puente-de-vallecas, palomeras_bajas</option>
+                <option value="puente-de-vallecas, palomeras_sureste">puente-de-vallecas, palomeras_sureste</option>
+                <option value="puente-de-vallecas, portazgo">puente-de-vallecas, portazgo</option>
+                <option value="puente-de-vallecas, san_diego">puente-de-vallecas, san_diego</option>
+                <option value="retiro, adelfas">retiro, adelfas</option>
+                <option value="retiro, estrella">retiro, estrella</option>
+                <option value="retiro, ibiza">retiro, ibiza</option>
+                <option value="retiro, jeronimos">retiro, jeronimos</option>
+                <option value="retiro, nino_jesus">retiro, nino_jesus</option>
+                <option value="retiro, pacifico">retiro, pacifico</option>
+                <option value="san-blas, amposta">san-blas, amposta</option>
+                <option value="san-blas, arcos">san-blas, arcos</option>
+                <option value="san-blas, canillejas">san-blas, canillejas</option>
+                <option value="san-blas, hellin">san-blas, hellin</option>
+                <option value="san-blas, rejas">san-blas, rejas</option>
+                <option value="san-blas, rosas">san-blas, rosas</option>
+                <option value="san-blas, salvador">san-blas, salvador</option>
+                <option value="san-blas, simancas">san-blas, simancas</option>
+                <option value="tetuan, bellas_vistas">tetuan, bellas_vistas</option>
+                <option value="tetuan, berruguete">tetuan, berruguete</option>
+                <option value="tetuan, cuatro_caminos">tetuan, cuatro_caminos</option>
+                <option value="tetuan, cuzco-castillejos">tetuan, cuzco-castillejos</option>
+                <option value="tetuan, valdeacederas">tetuan, valdeacederas</option>
+                <option value="tetuan, ventilla-almenara">tetuan, ventilla-almenara</option>
+                <option value="usera, 12_de_octubre-orcasur">usera, 12_de_octubre-orcasur</option>
+                <option value="usera, almendrales">usera, almendrales</option>
+                <option value="usera, moscardo">usera, moscardo</option>
+                <option value="usera, orcasitas">usera, orcasitas</option>
+                <option value="usera, pradolongo">usera, pradolongo</option>
+                <option value="usera, san_fermin">usera, san_fermin</option>
+                <option value="usera, zofio">usera, zofio</option>
+                <option value="vicalvaro, ambroz">vicalvaro, ambroz</option>
+                <option value="vicalvaro, casco_historico_de_vicalvaro">vicalvaro, casco_historico_de_vicalvaro</option>
+                <option value="vicalvaro, el_canaveral">vicalvaro, el_canaveral</option>
+                <option value="vicalvaro, los_berrocales">vicalvaro, los_berrocales</option>
+                <option value="vicalvaro, valdebernardo_-_valderrivas">vicalvaro, valdebernardo_-_valderrivas</option>
+                <option value="villa-de-vallecas, casco_historico_de_vallecas">villa-de-vallecas,
+                    casco_historico_de_vallecas</option>
+                <option value="villa-de-vallecas, ensanche_de_vallecas_-_la_gavia">villa-de-vallecas,
+                    ensanche_de_vallecas_-_la_gavia</option>
+                <option value="villa-de-vallecas, santa_eugenia">villa-de-vallecas, santa_eugenia</option>
+                <option value="villaverde, butarque">villaverde, butarque</option>
+                <option value="villaverde, los_angeles">villaverde, los_angeles</option>
+                <option value="villaverde, los_rosales">villaverde, los_rosales</option>
+                <option value="villaverde, san_cristobal">villaverde, san_cristobal</option>
+                <option value="villaverde, villaverde_alto">villaverde, villaverde_alto</option>
+
+            </select><br>
+
+            <br>
+            <input type="submit" value="Send" />
+        </form>
+    </div>
+</body>
+
+</html>
