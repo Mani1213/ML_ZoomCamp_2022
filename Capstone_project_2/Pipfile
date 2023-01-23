@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pickle-mixin = "*"
+numpy = "*"
+pandas = "*"
+xgboost = "*"
+scikit-learn = "*"
+fastapi = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+pydantic = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
